@@ -85,7 +85,7 @@ export default function ShareModal({ isOpen, onClose, username, score }: ShareMo
                                         <FiShare2 size={24} />
                                     </div>
                                     <h2 className="text-3xl font-black text-white">Share Your Rank</h2>
-                                    <p className="text-sm text-foreground/40 font-medium italic">"The coordinates of power must be known."</p>
+                                    <p className="text-sm text-foreground/40 font-medium italic">&quot;The coordinates of power must be known.&quot;</p>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
