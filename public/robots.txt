@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://git-score-v1.vercel.app/sitemap.xml
+
+# Disallow specific API routes that don't need indexing
+Disallow: /api/badge/
+Disallow: /api/watchlist
