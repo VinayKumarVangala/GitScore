@@ -28,7 +28,7 @@ export default function AboutPage() {
                         About <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-primary to-blue-400">GitScore</span>
                     </h1>
                     <p className="text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
-                        GitScore is a mystical analytical engine designed to scry the depths of a developer&apos;s GitHub profile and visualize their engineering aura.
+                        GitScore is a mystical analytical engine designed to scry the depths of a developer{"'"}s GitHub profile and visualize their engineering aura.
                     </p>
                 </div>
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
                         </h2>
                         <div className="mt-6 space-y-4 text-foreground/70 leading-relaxed font-medium">
                             <p>
-                                Traditional metrics often fail to capture the entire spectrum of an engineer&apos;s public work. Star counts are heavily skewed towards framework authors, while commit streaks only measure quantity, not impact.
+                                Traditional metrics often fail to capture the entire spectrum of an engineer{"'"}s public work. Star counts are heavily skewed towards framework authors, while commit streaks only measure quantity, not impact.
                             </p>
                             <p>
                                 GitScore attempts to holistically measure four dimensional planes:
