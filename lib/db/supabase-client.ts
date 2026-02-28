@@ -7,7 +7,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
     console.warn("Supabase credentials missing. Watchlist features will be disabled.");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = (supabaseUrl && supabaseAnonKey)
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 export interface WatchlistEntry {
     id: string;
@@ -19,6 +21,10 @@ export interface WatchlistEntry {
 }
 
 export async function addToWatchlist(username: string, score: number, grade: string) {
+    if (!supabase) {
+        console.error("Cannot add to watchlist: Supabase client not initialized.");
+        return null;
+    }
     const { data, error } = await supabase
         .from("watchlist")
         .upsert(
@@ -37,6 +43,7 @@ export async function addToWatchlist(username: string, score: number, grade: str
 }
 
 export async function removeFromWatchlist(username: string) {
+    if (!supabase) return;
     const { error } = await supabase
         .from("watchlist")
         .delete()
@@ -46,6 +53,7 @@ export async function removeFromWatchlist(username: string) {
 }
 
 export async function getWatchlist() {
+    if (!supabase) return [];
     const { data, error } = await supabase
         .from("watchlist")
         .select("*")
@@ -56,6 +64,7 @@ export async function getWatchlist() {
 }
 
 export async function checkWatchlistStatus(username: string) {
+    if (!supabase) return null;
     const { data, error } = await supabase
         .from("watchlist")
         .select("*")
