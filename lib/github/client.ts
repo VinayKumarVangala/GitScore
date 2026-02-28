@@ -8,36 +8,36 @@ let _octokit: Octokit | null = null;
 export function getOctokit(): Octokit {
     if (_octokit) return _octokit;
 
-    const token = process.env.GITHUB_TOKEN;
+    const token = process.env.GITHUB_TOKEN?.trim();
 
     if (!token) {
-        console.warn("[github] GITHUB_TOKEN is not defined in environment variables");
+        console.warn("[github] GITHUB_TOKEN is MISSING. API calls will be unauthenticated and limited.");
     } else {
-        console.info("[github] Initializing Octokit with token (length: " + token.length + ")");
+        console.info(`[github] Initializing Octokit (Token prefix: ${token.substring(0, 4)}..., Length: ${token.length})`);
     }
 
-    _octokit = new Octokit({
-        auth: token,
-        userAgent: "GitScore/1.0",
-        throttle: {
-            // Respect primary rate limit
-            onRateLimit: (retryAfter: number, options: any, octokit: any, retryCount: number) => {
-                octokit.log.warn(
-                    `Rate limit hit for ${options.method} ${options.url} — retry after ${retryAfter}s (attempt ${retryCount + 1})`
-                );
-                return retryCount < 2;   // retry up to 2 times
+    try {
+        _octokit = new Octokit({
+            auth: token || undefined,
+            userAgent: "GitScore/1.0",
+            throttle: {
+                // Respect primary rate limit
+                onRateLimit: (retryAfter: number, options: any, octokit: any, retryCount: number) => {
+                    octokit.log.warn(`Rate limit hit: ${options.method} ${options.url}`);
+                    return retryCount < 2;   // retry up to 2 times
+                },
+                // Respect secondary rate limit (abuse detection)
+                onSecondaryRateLimit: (retryAfter: number, options: any, octokit: any) => {
+                    octokit.log.warn(`Secondary rate limit hit: ${options.method} ${options.url}`);
+                    return false;            // do not retry secondary limits
+                },
             },
-            // Respect secondary rate limit (abuse detection)
-            onSecondaryRateLimit: (retryAfter: number, options: any, octokit: any) => {
-                octokit.log.warn(
-                    `Secondary rate limit hit for ${options.method} ${options.url}`
-                );
-                return false;            // do not retry secondary limits
-            },
-        },
-    });
-
-    return _octokit;
+        });
+        return _octokit;
+    } catch (err) {
+        console.error("[github] Failed to initialize Octokit:", err);
+        throw err;
+    }
 }
 
 // ─── Rate limit monitoring ───────────────────────────────────────────────────
