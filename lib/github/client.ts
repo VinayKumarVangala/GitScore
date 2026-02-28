@@ -10,6 +10,12 @@ export function getOctokit(): Octokit {
 
     const token = process.env.GITHUB_TOKEN;
 
+    if (!token) {
+        console.warn("[github] GITHUB_TOKEN is not defined in environment variables");
+    } else {
+        console.info("[github] Initializing Octokit with token (length: " + token.length + ")");
+    }
+
     _octokit = new Octokit({
         auth: token,
         userAgent: "GitScore/1.0",

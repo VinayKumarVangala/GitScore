@@ -35,6 +35,7 @@ export default async function handler(
 
         sendOk(res, user, { cached, maxAge: TTL.userProfile });
     } catch (err) {
+        console.error(`[api] Error fetching profile for ${username}:`, err);
         sendError(res, err);
     }
 }

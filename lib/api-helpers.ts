@@ -80,7 +80,14 @@ export function sendError(
 
     const msg = err instanceof Error ? err.message : "Internal server error";
     console.error("[api] Unhandled error:", err);
-    res.status(500).json({ error: msg, code: "INTERNAL_ERROR" });
+    if (err instanceof Error && err.stack) {
+        console.error("[api] Error stack:", err.stack);
+    }
+    res.status(500).json({
+        error: msg,
+        code: "INTERNAL_ERROR",
+        details: process.env.NODE_ENV === "development" ? err : undefined
+    });
 }
 
 // ─── Pagination query params ──────────────────────────────────────────────────
