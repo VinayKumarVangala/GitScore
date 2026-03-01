@@ -82,14 +82,14 @@ export default function ScoreDashboard({ scorecard, repos = [], className = "" }
                     className="space-y-8"
                 >
                     {activeTab === "overview" && (
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                             <div id="dashboard-summary" className="lg:col-span-1 flex flex-col gap-8">
                                 <OverallScoreCard
                                     scorecard={scorecard}
                                 />
                                 <MysticalAura scorecard={scorecard} className="flex-1" />
                             </div>
-                            <div className="lg:col-span-2 space-y-8">
+                            <div className="lg:col-span-2 xl:col-span-3 space-y-8">
                                 <div id="dashboard-categories">
                                     <CategoryGrid
                                         scorecard={scorecard}

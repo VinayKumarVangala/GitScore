@@ -132,8 +132,8 @@ export default function StarConstellation({ repos, className = "" }: StarConstel
 
             <div className="p-3 bg-white/5 border-t border-white/5 flex gap-4 overflow-x-auto no-scrollbar">
                 {topRepos.slice(0, 5).map(r => (
-                    <div key={r.id} className="flex flex-col shrink-0">
-                        <span className="text-[8px] font-bold text-foreground/40 uppercase tracking-tighter truncate w-20">{r.name}</span>
+                    <div key={r.id} className="flex flex-col shrink-0 min-w-[70px]">
+                        <span className="text-[8px] font-bold text-foreground/40 uppercase tracking-tighter truncate w-full">{r.name}</span>
                         <span className="text-[10px] font-black text-white">{r.stargazers_count} ⭐</span>
                     </div>
                 ))}

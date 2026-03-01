@@ -53,15 +53,15 @@ export default function LanguageChart({ languages, className = "" }: LanguageCha
         cutout: "70%",
         plugins: {
             legend: {
-                position: "right",
+                position: "bottom",
                 labels: {
                     color: "rgba(255, 255, 255, 0.5)",
                     font: {
-                        size: 11,
+                        size: 10,
                         family: "'Inter', sans-serif",
                         weight: "bold",
                     },
-                    padding: 15,
+                    padding: 10,
                     usePointStyle: true,
                     pointStyle: "circle",
                 },

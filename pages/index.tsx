@@ -33,7 +33,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl sm:text-8xl font-black tracking-tighter"
+            className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-cyan-primary to-cyan-deep">
               Unveil Your
@@ -69,7 +69,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/5"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-12 border-t border-white/5"
         >
           <FeatureIcon icon={<FiActivity />} label="Activity Pulse" />
           <FeatureIcon icon={<FiCode />} label="Code Health" />

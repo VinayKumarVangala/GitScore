@@ -51,7 +51,7 @@ export default function ActionButtons({ scorecard, className = "" }: ActionButto
 
     return (
         <>
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start ${className}`}>
+            <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 items-start ${className}`}>
                 <div className="space-y-2">
                     <MysticalButton
                         variant="primary"

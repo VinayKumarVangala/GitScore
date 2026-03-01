@@ -12,7 +12,6 @@ const SOCIAL_LINKS = [
 
 const FOOTER_LINKS = [
     { href: "/", label: "Home" },
-    { href: "/examples", label: "Examples" },
     { href: "/about", label: "About" },
     { href: "/privacy", label: "Privacy" },
 ];
@@ -36,8 +35,8 @@ export default function Footer() {
                 className="backdrop-blur-md border-t border-cyan-primary/10"
                 style={{ background: "rgba(10, 15, 30, 0.9)" }}
             >
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mb-8">
 
                         {/* Brand */}
                         <div>

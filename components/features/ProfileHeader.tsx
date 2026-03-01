@@ -100,7 +100,7 @@ export default function ProfileHeader({ user, className = "" }: ProfileHeaderPro
                 </div>
 
                 {/* Stats Column */}
-                <div className="w-full md:w-auto shrink-0 flex md:flex-col gap-3">
+                <div className="w-full lg:w-auto shrink-0 flex flex-wrap md:flex-nowrap lg:flex-col gap-3">
                     <StatBox label="Followers" value={user.followers} />
                     <StatBox label="Following" value={user.following} />
                     <StatBox label="Repositories" value={user.public_repos} />

@@ -130,7 +130,7 @@ export default function RepositoryList({ repos, onRepoClick, className = "" }: R
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 <AnimatePresence mode="popLayout">
                     {filteredRepos.map((repo) => (
                         <motion.div
@@ -174,8 +174,8 @@ function SortButton({
         <button
             onClick={onClick}
             className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 ${active
-                    ? "bg-cyan-primary text-background shadow-[0_0_12px_rgba(0,255,255,0.4)]"
-                    : "text-foreground/40 hover:text-foreground/70 hover:bg-white/5"
+                ? "bg-cyan-primary text-background shadow-[0_0_12px_rgba(0,255,255,0.4)]"
+                : "text-foreground/40 hover:text-foreground/70 hover:bg-white/5"
                 }`}
         >
             {label}
