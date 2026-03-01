@@ -35,10 +35,10 @@ export default function SearchHistory({ onSelect, className = "" }: SearchHistor
     if (history.length === 0) return null;
 
     return (
-        <div className={`relative ${className}`}>
+        <div className={`relative flex flex-col items-center ${className}`}>
             <button
                 onClick={() => setIsVisible(!isVisible)}
-                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-foreground/40 hover:text-cyan-primary transition-colors mb-2"
+                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-foreground/40 hover:text-cyan-primary transition-colors mb-2 mx-auto"
             >
                 <FiClock size={12} /> Recent Explorations
             </button>
@@ -49,7 +49,7 @@ export default function SearchHistory({ onSelect, className = "" }: SearchHistor
                         initial={{ opacity: 0, y: -10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        className="absolute top-full left-0 right-0 z-50 mt-2"
+                        className="absolute top-full left-1/2 -translate-x-1/2 w-64 z-50 mt-2"
                     >
                         <MysticalCard padding="none" className="overflow-hidden border-white/10 shadow-2xl">
                             <div className="flex flex-col">

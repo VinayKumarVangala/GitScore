@@ -48,8 +48,8 @@ export default function MysticalSearch({ initialValue = "", autoFocus = false }:
                 {/* Glowing Background Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-primary/20 via-purple-500/10 to-cyan-primary/20 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
 
-                <div className="relative flex items-center gap-3">
-                    <div className="flex-1">
+                <div className="relative flex flex-col sm:flex-row items-center sm:items-start gap-3">
+                    <div className="w-full sm:flex-1">
                         <MysticalInput
                             ref={inputRef}
                             id="github-search-input"
@@ -69,7 +69,7 @@ export default function MysticalSearch({ initialValue = "", autoFocus = false }:
                         size="lg"
                         isLoading={isLoading}
                         disabled={!query || isLoading}
-                        className="mt-6 px-8 shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]"
+                        className="mt-2 sm:mt-6 px-8 w-full sm:w-auto shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]"
                     >
                         Explore <FiArrowRight className="ml-2" aria-hidden="true" />
                     </MysticalButton>
@@ -84,7 +84,7 @@ export default function MysticalSearch({ initialValue = "", autoFocus = false }:
                             exit={{ opacity: 0, y: -10 }}
                             role="alert"
                             aria-live="assertive"
-                            className="absolute left-0 right-0 top-[110%] px-4 py-2 rounded-xl bg-red-400/10 border border-red-400/20 flex items-center gap-2 text-xs font-bold text-red-400 z-50"
+                            className="absolute left-0 right-0 top-[115%] sm:top-[110%] px-4 py-2 rounded-xl bg-red-400/10 border border-red-400/20 flex items-center gap-2 text-xs font-bold text-red-400 z-50 text-center justify-center"
                         >
                             <FiAlertCircle size={14} aria-hidden="true" /> {error}
                         </motion.div>
@@ -93,12 +93,12 @@ export default function MysticalSearch({ initialValue = "", autoFocus = false }:
             </form>
 
             {/* Auxiliary Controls */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 px-4">
+            <div className="flex flex-col items-center justify-center gap-6 px-4">
                 <SearchHistory onSelect={handleSuggestionClick} />
 
-                <div className="flex items-center gap-3" role="group" aria-label="Popular users to explore">
-                    <span id="popular-users-label" className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Popular:</span>
-                    <div className="flex flex-wrap gap-2" aria-labelledby="popular-users-label">
+                <div className="flex flex-col items-center gap-3" role="group" aria-label="Popular users to explore">
+                    <span id="popular-users-label" className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 text-center">Popular Explorations:</span>
+                    <div className="flex flex-wrap justify-center gap-2" aria-labelledby="popular-users-label">
                         {POPULAR_USERS.map((user) => (
                             <button
                                 key={user}

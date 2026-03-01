@@ -33,7 +33,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter"
+            className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] sm:leading-tight"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-cyan-primary to-cyan-deep">
               Unveil Your
@@ -48,7 +48,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl text-foreground/50 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-foreground/50 max-w-lg sm:max-w-2xl mx-auto leading-relaxed"
           >
             Deep dive into your GitHub presence. Analyze code quality, activity pulse,
             and community impact with precision.
